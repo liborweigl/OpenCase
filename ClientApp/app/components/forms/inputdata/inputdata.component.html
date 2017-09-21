@@ -1,0 +1,9 @@
+﻿<div>inputdata Component blabla bla</div>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <input formControlName="name" placeholder="Your name">
+    <input formControlName="email" placeholder="Your email">
+    <input formControlName="message" placeholder="Your message">
+
+    <button type="submit">Send</button>
+</form>
