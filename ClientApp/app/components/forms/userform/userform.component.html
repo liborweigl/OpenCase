@@ -1,0 +1,77 @@
+﻿<div>userform Component</div>
+
+<md-card class="example-card">
+    <md-card-header>
+        <div md-card-avatar class="example-header-image"></div>
+        <md-card-title>Shiba Inu</md-card-title>
+        <md-card-subtitle>Dog Breed</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="../../../../../wwwroot/img/profilepic.png" alt="Add here user name">
+    <md-card-content>
+        <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+        </p>
+
+        <div *ngIf="!name; else forminfo">
+            <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <md-form-field class="example-full-width">
+                                <input mdInput placeholder="Name"  formControlName="name">
+                            </md-form-field>
+                        </td>
+                        <td>
+                            <md-form-field class="example-full-width">
+                                <input mdInput placeholder="State">
+                            </md-form-field>
+                        </td>
+                        <td>
+                            <md-form-field class="example-full-width">
+                                <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+                                <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+                            </md-form-field>
+                        </td>
+                    </tr>
+                </table>
+
+                        <div class="form-container">
+                            <div class="row columns">
+                                <h1>My Reactive Form</h1>
+                                <label>
+                                    Name
+                                   
+                                </label>
+
+                                <p>
+                                <md-form-field class="demo-full-width">
+                                    <textarea mdInput placeholder="description" formControlName="description">text text</textarea>
+                                </md-form-field>
+                                </p>
+                                <label for="validate">Minimum of 3 Characters</label>
+                                <input type="checkbox" name="validate" formControlName="validate" value="1"> On
+
+                                <input md-raised-button class="myButton" type="submit" value="Submit Form" [disabled]="!rForm.valid">
+                            </div>
+                        </div>
+            </form>
+        </div>
+
+        <ng-template #forminfo>
+            <div class="form-container">
+                <div class="row columns">
+                    <h1>{{ name }}</h1>
+
+                    <p>{{ description }}</p>
+                </div>
+            </div>
+        </ng-template>
+
+    </md-card-content>
+    <md-card-actions>
+        <button md-button>LIKE</button>
+        <button md-button>SHARE</button>
+    </md-card-actions>
+</md-card>
