@@ -21,8 +21,12 @@ export class UserformComponent implements OnInit
             'description': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
             'validate': ''
         });
-
     }
     /** Called by Angular after userform component initialized */
     ngOnInit(): void { }
+
+    public addPost(post: any): void {
+        this.description = post.description;
+        this.name = post.name;
+    }
 }

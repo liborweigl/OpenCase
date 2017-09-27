@@ -36,28 +36,35 @@
                         </td>
                     </tr>
                 </table>
+                <h1>My Reactive Form</h1>
+                <table>           
+                    <tr>
+                        <td>
+                            <md-form-field class="example-full-width">
+                                <input mdInput placeholder="Name" formControlName="name">
+                            </md-form-field>
+                        </td>
+                    </tr>
 
-                        <div class="form-container">
-                            <div class="row columns">
-                                <h1>My Reactive Form</h1>
-                                <label>
-                                    Name
-                                   
-                                </label>
-
-                                <p>
-                                <md-form-field class="demo-full-width">
-                                    <textarea mdInput placeholder="description" formControlName="description">text text</textarea>
-                                </md-form-field>
-                                </p>
-                                <label for="validate">Minimum of 3 Characters</label>
-                                <input type="checkbox" name="validate" formControlName="validate" value="1"> On
-
-                                <input md-raised-button class="myButton" type="submit" value="Submit Form" [disabled]="!rForm.valid">
-                            </div>
-                        </div>
+                    <tr>
+                        <td>
+                            <md-form-field class="demo-full-width">
+                                <textarea mdInput placeholder="description" formControlName="description">text text</textarea>
+                            </md-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="validate">Minimum of 3 Characters</label>
+                            <input type="checkbox" name="validate" formControlName="validate" value="1"> On
+                        </td>
+                        <td>   
+                            <button  md-raised-button color="warn" type="submit" value="Submit Form" [disabled]="!rForm.valid" >Submit Form</button>
+</td>
+                    </tr>
+                </table>
             </form>
-        </div>
+        </div> 
 
         <ng-template #forminfo>
             <div class="form-container">

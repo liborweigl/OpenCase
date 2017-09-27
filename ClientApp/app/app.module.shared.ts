@@ -46,7 +46,7 @@ import {
     MdTooltipModule,
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
-//import { MdCoreModule} from '@angular/cdk';
+//import 'hammerjs';
 
 @NgModule({
     exports: [
