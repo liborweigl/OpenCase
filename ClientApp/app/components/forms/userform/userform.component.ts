@@ -19,7 +19,8 @@ export class UserformComponent implements OnInit
         this.rForm = fb.group({
             'name': [null, Validators.required],
             'description': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
-            'validate': ''
+            'validate': '',
+            
         });
     }
     /** Called by Angular after userform component initialized */

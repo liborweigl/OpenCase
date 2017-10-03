@@ -7,7 +7,7 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]="['/home']">OpenCase</a>
+            <!--<a class='navbar-brand' [routerLink]="['/home']"><img src="../../../../wwwroot/img/logo.png"  height="94" width="181"></a>-->
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
@@ -40,6 +40,11 @@
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/app-userform']">
                         <span class='glyphicon glyphicon-th-list'></span> User Form
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/app-notification']">
+                        <span class='glyphicon glyphicon-th-list'></span> Notification
                     </a>
                 </li>
             </ul>

@@ -1,0 +1,67 @@
+﻿
+    <md-card class="cardmar">
+        <md-card-content>
+           <div *ngIf="!name; else forminfo">
+                <h2 class="notification-h2"><i class="material-icons">settings</i>User configuration</h2>
+
+                <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+
+                    <table class="notification-full-width" cellspacing="0">
+                        <tr>
+                            <td>
+                                <md-form-field class="notification-full-width"> 
+                                    <input mdInput placeholder="Name" formControlName="name"> 
+                                </md-form-field>
+                            </td>
+                            <td>
+                                <md-form-field class="notification-full-width">  
+                                    <input mdInput placeholder="Email" formControlName="email">                               
+                                </md-form-field>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <section class="notification-section">
+                        <md-checkbox class="notification-margin" formControlName="dsg">DSG</md-checkbox>
+                        <md-checkbox class="notification-margin" formControlName="it">IT</md-checkbox>
+                        <md-checkbox class="notification-margin" formControlName="ags">AGS</md-checkbox>
+                    </section>
+
+                    <label class="example-margin">Period:</label>
+                    <section class="notification-section">
+                        <md-radio-group formControlName="occurrence" labelPosition="before">
+                            <md-radio-button class="notification-margin" value="daily">Daily</md-radio-button>
+                            <md-radio-button class="notification-margin" value="weekly">Weekly</md-radio-button>
+                        </md-radio-group>
+                    </section>
+                    <button md-raised-button><i class="material-icons">cancel</i>Cancel</button>
+                    <button md-raised-button color="warn" type="submit" value="Submit Form" [disabled]="!rForm.valid"><i class="material-icons">save</i>Add</button>
+                </form>
+               </div>
+            <ng-template #forminfo>
+                <table class='table' *ngIf="users">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>DSG</th>
+                            <th>IT</th>
+                            <th>AGS</th>
+                            <th>Occurence</th>
+                        </tr>
+                    </thead>
+                    <tbody>visibility
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td><i class="material-icons"> {{ user.DSG==true ? 'visibility': 'visibility_off'}}</i></td>
+                            <td><i class="material-icons"> {{ user.IT==true ? 'visibility': 'visibility_off'}}</i></td>
+                            <td><i class="material-icons"> {{ user.AGS==true ? 'visibility': 'visibility_off'}}</i></td>
+                            <td>{{ user.occurrence }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button md-raised-button (click)="addUser()"><i class="material-icons">add</i>Add user</button>
+            </ng-template>      
+</md-card-content>
+    </md-card>
