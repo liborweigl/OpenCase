@@ -12,7 +12,7 @@
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
-                <li [routerLinkActive]="['link-active']">
+                <!--<li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/home']">
                         <span class='glyphicon glyphicon-home'></span> Home
                     </a>
@@ -41,10 +41,15 @@
                     <a [routerLink]="['/app-userform']">
                         <span class='glyphicon glyphicon-th-list'></span> User Form
                     </a>
+                </li>-->
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/app-validationsc']">
+                        <span class='glyphicon glyphicon-th-list'></span>Validator check 
+                    </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/app-notification']">
-                        <span class='glyphicon glyphicon-th-list'></span> Notification
+                        <span class='glyphicon glyphicon-th-list'></span>Notification
                     </a>
                 </li>
             </ul>

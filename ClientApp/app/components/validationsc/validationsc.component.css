@@ -1,0 +1,27 @@
+﻿.notification-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.notification-h2 {
+    margin: 10px;
+}
+
+.notification-margin {
+    margin: 0 10px;
+}
+
+.example-full-width {
+    width: 75%;
+    margin: 0 10px;
+}
+
+.notification-full-width {
+    width: 100%;
+}
+
+.cardmar {
+    margin: 10px;
+}

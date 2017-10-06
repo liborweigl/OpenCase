@@ -14,6 +14,7 @@ import { InputdataComponent } from './components/forms/inputdata/inputdata.compo
 import { TabsComponent } from './components/tabs/tabs.component';
 import { UserformComponent } from './components/forms/userform/userform.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { ValidationscComponent} from './components/validationsc/validationsc.component';
 import {
     MdAutocompleteModule,
     MdButtonModule,
@@ -99,7 +100,8 @@ export class ShareMaterialModule { }
         InputdataComponent,
         TabsComponent,
         UserformComponent,
-        NotificationComponent
+        NotificationComponent,
+        ValidationscComponent
     ],
     imports: [
         CommonModule,
@@ -115,7 +117,8 @@ export class ShareMaterialModule { }
             { path: 'input-data', component: InputdataComponent },
             { path: 'app-tabs', component: TabsComponent },
             { path: 'app-userform', component: UserformComponent },
-            { path: 'app-notification', component: NotificationComponent},
+            { path: 'app-notification', component: NotificationComponent },
+            { path: 'app-validationsc', component: ValidationscComponent },         
             { path: '**', redirectTo: 'home' }
         ])
     ]
