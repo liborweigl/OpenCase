@@ -6,7 +6,7 @@ li .glyphicon {
 li.link-active a,
 li.link-active a:hover,
 li.link-active a:focus {
-    background-color: #4189C7;
+    background-color: #673ab7;
     color: white;
 }
 
@@ -17,6 +17,7 @@ li.link-active a:focus {
     left: 0;
     right: 0;
     z-index: 1;
+    background-color: #673ab7;
 }
 
 @media (min-width: 768px) {

@@ -13,6 +13,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { InputdataComponent } from './components/forms/inputdata/inputdata.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { UserformComponent } from './components/forms/userform/userform.component';
+import { NotificationComponent } from './components/notification/notification.component';
 import {
     MdAutocompleteModule,
     MdButtonModule,
@@ -97,7 +98,8 @@ export class ShareMaterialModule { }
         HomeComponent,
         InputdataComponent,
         TabsComponent,
-        UserformComponent
+        UserformComponent,
+        NotificationComponent
     ],
     imports: [
         CommonModule,
@@ -113,6 +115,7 @@ export class ShareMaterialModule { }
             { path: 'input-data', component: InputdataComponent },
             { path: 'app-tabs', component: TabsComponent },
             { path: 'app-userform', component: UserformComponent },
+            { path: 'app-notification', component: NotificationComponent},
             { path: '**', redirectTo: 'home' }
         ])
     ]
