@@ -43,8 +43,13 @@ namespace OpenCase
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
+            app.UseMvc(
+                routes =>
             {
+                routes.MapRoute(
+                   name: "api",
+                   template: "api/{controller}/{action}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
@@ -52,7 +57,8 @@ namespace OpenCase
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
-            });
+            }
+        );
         }
     }
 }

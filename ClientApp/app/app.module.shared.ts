@@ -14,7 +14,10 @@ import { InputdataComponent } from './components/forms/inputdata/inputdata.compo
 import { TabsComponent } from './components/tabs/tabs.component';
 import { UserformComponent } from './components/forms/userform/userform.component';
 import { NotificationComponent } from './components/notification/notification.component';
-import { ValidationscComponent} from './components/validationsc/validationsc.component';
+import { ValidationscComponent } from './components/validationsc/validationsc.component';
+import { AddEntityComponent } from './components/add-entity/add.entity.component';
+import {AddEntityService } from './components/add-entity/add.entity.service';
+
 import {
     MdAutocompleteModule,
     MdButtonModule,
@@ -101,8 +104,10 @@ export class ShareMaterialModule { }
         TabsComponent,
         UserformComponent,
         NotificationComponent,
-        ValidationscComponent
+        ValidationscComponent,
+        AddEntityComponent
     ],
+    providers: [AddEntityService],
     imports: [
         CommonModule,
         HttpModule,
@@ -118,7 +123,8 @@ export class ShareMaterialModule { }
             { path: 'app-tabs', component: TabsComponent },
             { path: 'app-userform', component: UserformComponent },
             { path: 'app-notification', component: NotificationComponent },
-            { path: 'app-validationsc', component: ValidationscComponent },         
+            { path: 'app-validationsc', component: ValidationscComponent }, 
+            { path: 'app-addentity', component: AddEntityComponent },   
             { path: '**', redirectTo: 'home' }
         ])
     ]

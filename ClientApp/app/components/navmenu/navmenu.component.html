@@ -1,11 +1,14 @@
 <div class='main-nav'>
     <div class='navbar navbar-inverse'>
         <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+            <!--<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
                 <span class='sr-only'>Toggle navigation</span>
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
+            </button>-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <!--<a class='navbar-brand' [routerLink]="['/home']"><img src="../../../../wwwroot/img/logo.png"  height="94" width="181"></a>-->
         </div>
@@ -42,6 +45,17 @@
                         <span class='glyphicon glyphicon-th-list'></span> User Form
                     </a>
                 </li>-->
+                
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/app-addentity']">
+                        <span class='glyphicon glyphicon-th-list'></span> Add entity
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/app-tabs']">
+                        <span class='glyphicon glyphicon-th-list'></span> tabs
+                    </a>
+                </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/app-validationsc']">
                         <span class='glyphicon glyphicon-th-list'></span>Validator check 
