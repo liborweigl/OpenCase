@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using OpenCase.Entities;
+using OpenCase.ViewModel;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -46,12 +48,24 @@ namespace OpenCase.Controllers
 
         // POST api/values
         [HttpPost("CreateNewEntity")]
-        public void CreateNewEntity(string value)
+        public void CreateNewEntity([FromBody]EntityViewModel test)
         {
+            Entity e = new Entity();
+           
 
-            Console.WriteLine("test"+value);
+            Console.WriteLine("test"+ test);
 
            
+        }
+
+        [HttpGet("GetEntities")]
+        public IEnumerable<IEntity> GetEntities()
+        {
+
+            IList<IEntity> list = new List<IEntity>();
+            list.Add(new Entity() { name = "xxx", surname = "dd", email = "dd@gmailc.om" });
+            list.Add(new Entity() { name = "xxxdd", surname = "eee", email = "dd@gmailc222.om" });
+            return list;
         }
     }
 }

@@ -16,7 +16,8 @@ import { UserformComponent } from './components/forms/userform/userform.componen
 import { NotificationComponent } from './components/notification/notification.component';
 import { ValidationscComponent } from './components/validationsc/validationsc.component';
 import { AddEntityComponent } from './components/add-entity/add.entity.component';
-import {AddEntityService } from './components/add-entity/add.entity.service';
+import { AddEntityService } from './components/add-entity/add.entity.service';
+import { List_entityComponent } from './components/list_entity/list_entity.component';
 
 import {
     MdAutocompleteModule,
@@ -105,7 +106,8 @@ export class ShareMaterialModule { }
         UserformComponent,
         NotificationComponent,
         ValidationscComponent,
-        AddEntityComponent
+        AddEntityComponent,
+        List_entityComponent
     ],
     providers: [AddEntityService],
     imports: [
@@ -124,7 +126,8 @@ export class ShareMaterialModule { }
             { path: 'app-userform', component: UserformComponent },
             { path: 'app-notification', component: NotificationComponent },
             { path: 'app-validationsc', component: ValidationscComponent }, 
-            { path: 'app-addentity', component: AddEntityComponent },   
+            { path: 'app-addentity', component: AddEntityComponent },
+            { path: 'app-listentity', component: List_entityComponent },  
             { path: '**', redirectTo: 'home' }
         ])
     ]

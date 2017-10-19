@@ -6,8 +6,11 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 
-import { IEntity } from './entity';
+
+import { IEntity, Entity } from './entity';
 
 @Injectable()
 export class AddEntityService {
@@ -33,12 +36,23 @@ export class AddEntityService {
         return Observable.throw(err.message);
     }
 
-    storeEntity(entity: any): void {
+    storeEntity(entity: IEntity): void {
        
-        //let headers = new HttpHeaders('Content-Type', 'application/json');
         const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-
-        this.http.post(this.baseUrl + 'api/OpenCase/CreateNewEntity', JSON.stringify(entity), { headers: headers }
+        
+        let value = JSON.stringify(entity);
+        this.http.post(this.baseUrl + 'api/OpenCase/CreateNewEntity', value, { headers: headers }
         ).subscribe();
+    }
+
+
+    getEntities(): Observable<IEntity[]> {
+        
+        let b: Observable<IEntity[]> = this.http.get(this.baseUrl + 'api/OpenCase/GetEntities')
+            .do(data => console.log('All: ' + JSON.stringify(data as IEntity[]) + 'next ' + (data as IEntity[]))).
+            catch(this.handleError);
+        
+        console.log('Not in observable:');
+        return b;
     }
 }

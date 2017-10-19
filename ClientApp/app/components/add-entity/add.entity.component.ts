@@ -1,7 +1,8 @@
-﻿
+﻿import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms'
 import { AddEntityService } from './add.entity.service'
+import { IEntity, Entity } from "./entity";
 
 @Component({
     selector: 'app-add-entity',
@@ -23,7 +24,10 @@ export class AddEntityComponent implements OnInit
     ];
 
     /** notification ctor */
-    constructor(private fb: FormBuilder, private _addEntityService: AddEntityService) {
+    constructor(private fb: FormBuilder,
+        private _addEntityService: AddEntityService,
+        public route: ActivatedRoute,
+        public router: Router ) {
 
         this.addEntityForm = fb.group({
             'email': ['', [Validators.required, Validators.pattern('[a-z0-9.@]*')]],
@@ -50,9 +54,19 @@ export class AddEntityComponent implements OnInit
 
     public postAddEntity(post: any): void {
 
-        this._addEntityService.storeEntity(post);
+        let entity = new Entity();
+        entity.name = post.name;
+        entity.email = post.email;
+        entity.surname = post.surname;
+
+        this._addEntityService.storeEntity(entity);
+
+        this.router.navigate(['app-listentity']);
 
     }
 
-    public cancelBack(): void { }
+    public cancelBack(): void {
+
+        this.router.navigate(['app-listentity']);
+    }
 }
