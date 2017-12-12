@@ -36,13 +36,13 @@ export class AddEntityService {
         return Observable.throw(err.message);
     }
 
-    storeEntity(entity: IEntity): void {
+    storeEntity(entity: IEntity): Observable<Object> {
        
         const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
         
         let value = JSON.stringify(entity);
-        this.http.post(this.baseUrl + 'api/OpenCase/CreateNewEntity', value, { headers: headers }
-        ).subscribe();
+        return this.http.post(this.baseUrl + 'api/OpenCase/CreateNewEntity', value, { headers: headers }
+        )
     }
 
 

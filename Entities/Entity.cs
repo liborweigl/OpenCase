@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace OpenCase.Entities
 {
-    public class Entity : IEntity
+    public class EntityCase : IEntity
     {
-       //public int productId { get; set; }
+        //public int productId { get; set; }
+       public int Id { get; set; }
        public string email { get; set; }
        public string name { get; set; }
        public string surname { get; set; }

@@ -59,9 +59,16 @@ export class AddEntityComponent implements OnInit
         entity.email = post.email;
         entity.surname = post.surname;
 
-        this._addEntityService.storeEntity(entity);
+        this._addEntityService.storeEntity(entity).subscribe(x => {
+            console.log('Correct');
+            this.router.navigate(['app-listentity']);
+        },
+            e => {
+                console.log('Not in observable:');
+                this.router.navigate(['app-listentity']);
+            });
 
-        this.router.navigate(['app-listentity']);
+       
 
     }
 

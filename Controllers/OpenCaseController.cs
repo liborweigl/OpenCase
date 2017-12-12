@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OpenCase.Entities;
 using OpenCase.ViewModel;
+using MediatR;
+using OpenCase.Event;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +15,13 @@ namespace OpenCase.Controllers
     [Route("api/[controller]")]
     public class OpenCaseController : Controller
     {
+        IMediator _mediator;
+        public OpenCaseController(IMediator mediator)
+        {
+            _mediator = mediator;
+
+        }
+
         // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get()
@@ -48,24 +57,23 @@ namespace OpenCase.Controllers
 
         // POST api/values
         [HttpPost("CreateNewEntity")]
-        public void CreateNewEntity([FromBody]EntityViewModel test)
+        public NoContentResult CreateNewEntity([FromBody]EntityViewModel test)
         {
-            Entity e = new Entity();
-           
+            EntityCase e = new EntityCase();
 
-            Console.WriteLine("test"+ test);
+            _mediator.Send(new CreateEntity() { email = test.email, name = test.name, surname = test.surname });
 
-           
+            return NoContent();
+
+
         }
 
         [HttpGet("GetEntities")]
         public IEnumerable<IEntity> GetEntities()
         {
+            var model  =  _mediator.Send(new IndexEntity()).Result;
 
-            IList<IEntity> list = new List<IEntity>();
-            list.Add(new Entity() { name = "xxx", surname = "dd", email = "dd@gmailc.om" });
-            list.Add(new Entity() { name = "xxxdd", surname = "eee", email = "dd@gmailc222.om" });
-            return list;
+            return model;
         }
     }
 }
