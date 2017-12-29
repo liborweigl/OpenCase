@@ -75,5 +75,11 @@ namespace OpenCase.Controllers
 
             return model;
         }
+
+        [HttpGet("GetEntity")]
+        public IEntity GetEntity(int Id)
+        {
+            return _mediator.Send(new IndexEntity() { ID = Id }).Result.FirstOrDefault();
+        }
     }
 }

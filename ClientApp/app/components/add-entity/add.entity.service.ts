@@ -11,6 +11,7 @@ import 'rxjs/add/observable/of';
 
 
 import { IEntity, Entity } from './entity';
+import { HttpParams } from "@angular/common/http";
 
 @Injectable()
 export class AddEntityService {
@@ -54,5 +55,20 @@ export class AddEntityService {
         
         console.log('Not in observable:');
         return b;
+    }
+
+    getEntity(Id: number): Observable<IEntity> {
+       
+
+        const params = new HttpParams().set('Id', Id.toString());
+
+       
+
+        let ob: Observable<IEntity> = this.http.get(this.baseUrl + 'api/OpenCase/GetEntity', { params: params })
+            .do(data => console.log('All: ' + JSON.stringify(data as IEntity) + 'next ' + (data as IEntity))).
+            catch(this.handleError);
+
+        console.log('Not in observable:');
+        return ob;
     }
 }

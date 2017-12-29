@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms'
 import { AddEntityService } from './add.entity.service'
 import { IEntity, Entity } from "./entity";
+import { MatInputModule} from '@angular/material';
 
 @Component({
     selector: 'app-add-entity',
@@ -62,13 +63,11 @@ export class AddEntityComponent implements OnInit
         this._addEntityService.storeEntity(entity).subscribe(x => {
             console.log('Correct');
             this.router.navigate(['app-listentity']);
-        },
+            },
             e => {
                 console.log('Not in observable:');
                 this.router.navigate(['app-listentity']);
             });
-
-       
 
     }
 

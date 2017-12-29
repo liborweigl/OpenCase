@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { Entity, IEntity } from "../add-entity/entity";
 import { AddEntityService } from "../add-entity/add.entity.service"
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-list_entity',
@@ -18,7 +19,7 @@ export class List_entityComponent implements OnInit
     entity: IEntity[];
 
     /** list_entity ctor */
-    constructor(private addEntityService: AddEntityService) {
+    constructor(private addEntityService: AddEntityService, public router: Router) {
        
         addEntityService.getEntities().subscribe(data => {
             this.entity = <IEntity[]>data;
@@ -34,6 +35,13 @@ export class List_entityComponent implements OnInit
     {
         this.entity.push(<IEntity>{ name: 'fdsfds', surname: 'dd', email: 'emafdsil@gmail.com' });
         this.dataSource = new ExampleDataSource(this.entity);
+    }
+
+    selectRow(row: any): void
+    {
+        console.log(row);
+        this.router.navigate(['app-presententity', { entityId: row.id }]);
+
     }
 }
 

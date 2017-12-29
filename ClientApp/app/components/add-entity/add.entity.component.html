@@ -1,81 +1,83 @@
 ﻿
-<md-card class="cardmar">
-    <md-card-content>
+<mat-card class="cardmar">
+    <mat-card-content>
         <div *ngIf="!name; else forminfo">
             <h2 class="notification-h2"><i class="material-icons">add</i> Add user</h2>
 
             <form [formGroup]="addEntityForm" (ngSubmit)="postAddEntity(addEntityForm.value)">
 
-                <md-select placeholder="Entity type" formControlName="selectedValue" name="food">
-                    <md-option *ngFor="let type of entityTypes" [value]="type.value">
+                <mat-select placeholder="Entity type" formControlName="selectedValue" name="food">
+                    <mat-option *ngFor="let type of entityTypes" [value]="type.value">
                         {{type.viewValue}}
-                    </md-option>
-                </md-select>
+                    </mat-option>
+                </mat-select>
 
 
 
                 <table class="notification-full-width" cellspacing="0">
                     <tr>
                         <td>
-                            <md-form-field class="notification-full-width">
-                                <input mdInput placeholder="Name" formControlName="name">
-                            </md-form-field>
+                            <mat-form-field class="notification-full-width">
+                                <input matInput placeholder="Name" formControlName="name">
+                            </mat-form-field>
                         </td>
                         <td>
-                            <md-form-field class="notification-full-width">
-                                <input mdInput placeholder="Surname" formControlName="surname">
-                            </md-form-field>
+                            <mat-form-field class="notification-full-width">
+                                <input matInput placeholder="Surname" formControlName="surname">
+                            </mat-form-field>
                         </td>
                         </tr>
                     <tr>
                         <td>
-                            <md-form-field class="notification-full-width">
-                                <input mdInput placeholder="Email" formControlName="email">
-                            </md-form-field>
+                            <mat-form-field class="notification-full-width">
+                                <input matInput placeholder="Email" formControlName="email">
+                            </mat-form-field>
                         </td>   <td>
-                            <md-form-field class="notification-full-width">
-                                <input mdInput placeholder="Unique Id" formControlName="UniqueId">
-                                <md-hint align="start"><strong>Any unique number issue by goverment for example NI</strong> </md-hint>
-                            </md-form-field>
+                            <mat-form-field class="notification-full-width">
+                                <input matInput placeholder="Unique Id" formControlName="UniqueId">
+                                <mat-hint align="start"><strong>Any unique number issue by goverment for example NI</strong> </mat-hint>
+                            </mat-form-field>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <md-form-field>
-                                <input mdInput [mdDatepicker]="picker" placeholder="Date of birth">
-                                <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-                                <md-datepicker #picker></md-datepicker>
-                            </md-form-field>
+
+
+                            <!--<mat-form-field>
+                                <input matInput [matDatepicker]="picker" placeholder="Date of birth" [formControl]="date">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>-->
                         </td>
                     </tr>
                 </table>
                 <div class='clearfix'></div>
                 <p>
-                    <md-form-field class="example-full-width">
-                        <textarea mdInput placeholder="Address" formControlName="adddress"></textarea>
-                    </md-form-field>
-                    <md-form-field class="example-full-width">
-                        <textarea mdInput placeholder="Address 2" formControlName="adddress2"></textarea>
-                    </md-form-field>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Address" formControlName="adddress"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Address 2" formControlName="adddress2"></textarea>
+                    </mat-form-field>
                 </p>
 
                 <table class="example-full-width" cellspacing="0">
                     <tr>
                         <td>
-                            <md-form-field class="example-full-width">
-                                <input mdInput placeholder="City" formControlName="city">
-                            </md-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="City" formControlName="city">
+                            </mat-form-field>
                         </td>
                         <td>
-                            <md-form-field class="example-full-width">
-                                <input mdInput placeholder="Country" formControlName="country">
-                            </md-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Country" formControlName="country">
+                            </mat-form-field>
                         </td>
                         <td>
-                            <md-form-field class="example-full-width">
-                                <input mdInput #postalCode maxlength="6" placeholder="Postal Code" value="" formControlName="postalCode">
-                                <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
-                            </md-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput #postalCode maxlength="6" placeholder="Postal Code" value="" formControlName="postalCode">
+                                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                            </mat-form-field>
                         </td>
                     </tr>
                 </table>
@@ -83,28 +85,28 @@
        
       
         <section class="notification-section">
-            <md-checkbox class="notification-margin" formControlName="dsg">DSG</md-checkbox>
-            <md-checkbox class="notification-margin" formControlName="it">IT</md-checkbox>
-            <md-checkbox class="notification-margin" formControlName="ags">AGS</md-checkbox>
+            <mat-checkbox class="notification-margin" formControlName="dsg">DSG</mat-checkbox>
+            <mat-checkbox class="notification-margin" formControlName="it">IT</mat-checkbox>
+            <mat-checkbox class="notification-margin" formControlName="ags">AGS</mat-checkbox>
         </section>
         
 
         <label class="example-margin">Period:</label>
         <section class="notification-section">
-            <md-radio-group formControlName="occurrence" labelPosition="before">
-                <md-radio-button class="notification-margin" value="daily">Daily</md-radio-button>
-                <md-radio-button class="notification-margin" value="weekly">Weekly</md-radio-button>
-            </md-radio-group>
+            <mat-radio-group formControlName="occurrence" labelPosition="before">
+                <mat-radio-button class="notification-margin" value="daily">Daily</mat-radio-button>
+                <mat-radio-button class="notification-margin" value="weekly">Weekly</mat-radio-button>
+            </mat-radio-group>
         </section>
       
 
-        <button md-raised-button (click)="cancelBack()"><i class="material-icons">cancel</i>Cancel</button>
-        <button md-raised-button color="warn" type="submit" value="Submit Form" [disabled]="!addEntityForm.valid"><i class="material-icons">save</i>Add</button>
+        <button mat-raised-button (click)="cancelBack()"><i class="material-icons">cancel</i>Cancel</button>
+        <button mat-raised-button color="warn" type="submit" value="Submit Form" [disabled]="!addEntityForm.valid"><i class="material-icons">save</i>Add</button>
         </form>
 
         </div>
         <ng-template #forminfo>
             Success of submit
         </ng-template>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

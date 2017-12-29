@@ -1,6 +1,6 @@
 ﻿
-    <md-card class="cardmar">
-        <md-card-content>
+    <mat-card class="cardmar">
+        <mat-card-content>
            <div *ngIf="!name; else forminfo">
                 <h2 class="notification-h2"><i class="material-icons">settings</i>User configuration</h2>
 
@@ -9,33 +9,33 @@
                     <table class="notification-full-width" cellspacing="0">
                         <tr>
                             <td>
-                                <md-form-field class="notification-full-width"> 
-                                    <input mdInput placeholder="Name" formControlName="name"> 
-                                </md-form-field>
+                                <mat-form-field class="notification-full-width"> 
+                                    <input matInput placeholder="Name" formControlName="name"> 
+                                </mat-form-field>
                             </td>
                             <td>
-                                <md-form-field class="notification-full-width">  
-                                    <input mdInput placeholder="Email" formControlName="email">                               
-                                </md-form-field>
+                                <mat-form-field class="notification-full-width">  
+                                    <input matInput placeholder="Email" formControlName="email">                               
+                                </mat-form-field>
                             </td>
                         </tr>
                     </table>
 
                     <section class="notification-section">
-                        <md-checkbox class="notification-margin" formControlName="dsg">DSG</md-checkbox>
-                        <md-checkbox class="notification-margin" formControlName="it">IT</md-checkbox>
-                        <md-checkbox class="notification-margin" formControlName="ags">AGS</md-checkbox>
+                        <mat-checkbox class="notification-margin" formControlName="dsg">DSG</mat-checkbox>
+                        <mat-checkbox class="notification-margin" formControlName="it">IT</mat-checkbox>
+                        <mat-checkbox class="notification-margin" formControlName="ags">AGS</mat-checkbox>
                     </section>
 
                     <label class="example-margin">Period:</label>
                     <section class="notification-section">
-                        <md-radio-group formControlName="occurrence" labelPosition="before">
-                            <md-radio-button class="notification-margin" value="daily">Daily</md-radio-button>
-                            <md-radio-button class="notification-margin" value="weekly">Weekly</md-radio-button>
-                        </md-radio-group>
+                        <mat-radio-group formControlName="occurrence" labelPosition="before">
+                            <mat-radio-button class="notification-margin" value="daily">Daily</mat-radio-button>
+                            <mat-radio-button class="notification-margin" value="weekly">Weekly</mat-radio-button>
+                        </mat-radio-group>
                     </section>
-                    <button md-raised-button><i class="material-icons">cancel</i>Cancel</button>
-                    <button md-raised-button color="warn" type="submit" value="Submit Form" [disabled]="!rForm.valid"><i class="material-icons">save</i>Add</button>
+                    <button mat-raised-button><i class="material-icons">cancel</i>Cancel</button>
+                    <button mat-raised-button color="warn" type="submit" value="Submit Form" [disabled]="!rForm.valid"><i class="material-icons">save</i>Add</button>
                 </form>
                </div>
             <ng-template #forminfo>
@@ -61,7 +61,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button md-raised-button (click)="addUser()"><i class="material-icons">add</i>Add user</button>
+                <button mat-raised-button (click)="addUser()"><i class="material-icons">add</i>Add user</button>
             </ng-template>      
-</md-card-content>
-    </md-card>
+</mat-card-content>
+    </mat-card>

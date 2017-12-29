@@ -18,79 +18,8 @@ import { ValidationscComponent } from './components/validationsc/validationsc.co
 import { AddEntityComponent } from './components/add-entity/add.entity.component';
 import { AddEntityService } from './components/add-entity/add.entity.service';
 import { List_entityComponent } from './components/list_entity/list_entity.component';
-
-import {
-    MdAutocompleteModule,
-    MdButtonModule,
-    MdButtonToggleModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdChipsModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdExpansionModule,
-    MdGridListModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdNativeDateModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSliderModule,
-    MdSlideToggleModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTableModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdTooltipModule,
-} from '@angular/material';
-import { CdkTableModule } from '@angular/cdk/table';
-//import 'hammerjs';
-
-@NgModule({
-    exports: [
-        CdkTableModule,
-        MdAutocompleteModule,
-        MdButtonModule,
-        MdButtonToggleModule,
-        MdCardModule,
-        MdCheckboxModule,
-        MdChipsModule,
-        //MdCoreModule,
-        MdDatepickerModule,
-        MdDialogModule,
-        MdExpansionModule,
-        MdGridListModule,
-        MdIconModule,
-        MdInputModule,
-        MdListModule,
-        MdMenuModule,
-        MdNativeDateModule,
-        MdPaginatorModule,
-        MdProgressBarModule,
-        MdProgressSpinnerModule,
-        MdRadioModule,
-        MdRippleModule,
-        MdSelectModule,
-        MdSidenavModule,
-        MdSliderModule,
-        MdSlideToggleModule,
-        MdSnackBarModule,
-        MdSortModule,
-        MdTableModule,
-        MdTabsModule,
-        MdToolbarModule,
-        MdTooltipModule,
-    ]
-})
-export class ShareMaterialModule { }
+import { PresentEntityComponent } from './components/present-entity/present-entity.component';
+import { MaterialModule } from './material.module';
 
 //import 'hammerjs';
 
@@ -107,7 +36,8 @@ export class ShareMaterialModule { }
         NotificationComponent,
         ValidationscComponent,
         AddEntityComponent,
-        List_entityComponent
+        List_entityComponent,
+        PresentEntityComponent
     ],
     providers: [AddEntityService],
     imports: [
@@ -115,7 +45,7 @@ export class ShareMaterialModule { }
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
-        ShareMaterialModule,
+        MaterialModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
@@ -127,7 +57,8 @@ export class ShareMaterialModule { }
             { path: 'app-notification', component: NotificationComponent },
             { path: 'app-validationsc', component: ValidationscComponent }, 
             { path: 'app-addentity', component: AddEntityComponent },
-            { path: 'app-listentity', component: List_entityComponent },  
+            { path: 'app-listentity', component: List_entityComponent }, 
+            { path: 'app-presententity', component: PresentEntityComponent },  
             { path: '**', redirectTo: 'home' }
         ])
     ]
