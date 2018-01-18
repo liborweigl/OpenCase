@@ -1,4 +1,4 @@
-
+import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 ///import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -55,7 +55,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
         ReactiveFormsModule,
         MaterialModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'cases', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
@@ -67,8 +67,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
             { path: 'app-addentity', component: AddEntityComponent },
             { path: 'app-listentity', component: List_entityComponent }, 
             { path: 'app-presententity', component: PresentEntityComponent },  
-            { path: 'app-search', component: SearchComponent },  
-            { path: '**', redirectTo: 'home' }
+            { path: 'app-search', component: SearchComponent }, 
+            { path: 'cases', loadChildren: './CoreCase/corecase.module#CorecaseModule' },
+            { path: '**', redirectTo: 'cases' }
         ])
     ]
 })
