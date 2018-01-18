@@ -1,0 +1,55 @@
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10"
+               [opened]="!isScreenSmall()"
+               [mode]="isScreenSmall() ? 'over' : 'side'">
+    <mat-toolbar color="primary">
+      Contacts
+    </mat-toolbar>
+    <mat-list>
+            <mat-list-item [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/counter']">
+                    <span class='glyphicon glyphicon-education'></span> Counter
+                </a>
+            </mat-list-item>        
+            <mat-list-item [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/app-addentity']">
+                  Add entity
+                </a>
+            </mat-list-item>
+            <mat-list-item [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/app-tabs']">
+                   tabs
+                </a>
+            </mat-list-item>
+            <mat-list-item [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/app-validationsc']">
+                   Validator check
+                </a>
+            </mat-list-item>
+            <mat-list-item [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/app-notification']">
+                    Notification
+                </a>
+            </mat-list-item>
+            <mat-list-item [routerLinkActive]="['link-active']">
+                <a matLine [routerLink]="['/app-listentity']">
+                    show list
+                </a>
+            </mat-list-item>
+            <mat-list-item [routerLinkActive]="['link-active']">
+                <a matLine [routerLink]="['/app-search']">
+                    search
+                </a>
+            </mat-list-item>
+
+</mat-list>
+  </mat-sidenav>
+
+  <div class="app-sidenav-content">
+    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</mat-sidenav-container>

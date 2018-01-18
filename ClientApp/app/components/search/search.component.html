@@ -1,0 +1,35 @@
+﻿<div style="border: 1px solid red">search Component</div>
+
+<mat-card class="demo-card demo-basic">
+    <mat-toolbar color="primary">Basic</mat-toolbar>
+    <mat-card-content>
+        
+            <mat-form-field class="demo-full-width">
+                <input matInput type="search"  placeholder="Search">
+            </mat-form-field>
+            <button mat-raised-button color="warn" type="submit" value="Submit Form"><i class="material-icons">save</i>Add</button>
+
+        <h1>Product Search</h1>
+        <input type="text" (keydown)="search($event)" placeholder="search document..." class="input">
+        <div *ngFor="let product of Products">
+            <h4>{{product?.Title}}</h4>
+            <p>
+                {{product?.Description}}
+            </p>
+        </div>
+        <div *ngIf="product?.length < 1">
+            <hr>
+            <p>
+                No results found :(
+            </p>
+        </div>
+
+        <mat-form-field>
+            <input matInput type="search" placeholder="Search">
+           
+            <button class="md-icon-button">
+                <i class="material-icons">close</i>
+            </button>
+            </mat-form-field>
+</mat-card-content>
+</mat-card>

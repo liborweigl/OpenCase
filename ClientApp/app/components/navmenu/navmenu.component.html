@@ -15,6 +15,11 @@
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/counter']">
+                        <span class='glyphicon glyphicon-education'></span> Counter
+                    </a>
+                </li>
                 <!--<li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/home']">
                         <span class='glyphicon glyphicon-home'></span> Home
@@ -69,6 +74,11 @@
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/app-listentity']">
                         <span class='glyphicon glyphicon-th-list'></span>show list
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/app-search']">
+                        <span class='glyphicon glyphicon-th-list'></span>search
                     </a>
                 </li>
             </ul>

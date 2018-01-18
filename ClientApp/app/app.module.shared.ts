@@ -20,6 +20,10 @@ import { AddEntityService } from './components/add-entity/add.entity.service';
 import { List_entityComponent } from './components/list_entity/list_entity.component';
 import { PresentEntityComponent } from './components/present-entity/present-entity.component';
 import { MaterialModule } from './material.module';
+import { SearchComponent } from './components/search/search.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+//import { FlexLayoutModule } from "@angular/flex-layout";
 
 //import 'hammerjs';
 
@@ -37,7 +41,11 @@ import { MaterialModule } from './material.module';
         ValidationscComponent,
         AddEntityComponent,
         List_entityComponent,
-        PresentEntityComponent
+        PresentEntityComponent,
+        SearchComponent,
+        SidenavComponent,
+        //FlexLayoutModule
+        ToolbarComponent
     ],
     providers: [AddEntityService],
     imports: [
@@ -59,6 +67,7 @@ import { MaterialModule } from './material.module';
             { path: 'app-addentity', component: AddEntityComponent },
             { path: 'app-listentity', component: List_entityComponent }, 
             { path: 'app-presententity', component: PresentEntityComponent },  
+            { path: 'app-search', component: SearchComponent },  
             { path: '**', redirectTo: 'home' }
         ])
     ]
