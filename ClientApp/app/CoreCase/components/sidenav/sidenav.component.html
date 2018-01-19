@@ -3,7 +3,7 @@
                [opened]="!isScreenSmall()"
                [mode]="isScreenSmall() ? 'over' : 'side'">
     <mat-toolbar color="primary">
-      Contacts
+      Actions
     </mat-toolbar>
     <mat-list>
             <mat-list-item [routerLinkActive]="['link-active']">
@@ -22,10 +22,15 @@
                 </a>
             </mat-list-item>
             <mat-list-item [routerLinkActive]="['link-active']">
-                <a [routerLink]="['/app-notification']">
-                    Notification
+                <a [routerLink]="['/cases/corecase/main']">
+                    main
                 </a>
             </mat-list-item>
+        <mat-list-item [routerLinkActive]="['link-active']">
+            <a [routerLink]="['main']">
+              short cut  main
+            </a>
+        </mat-list-item>
 
 </mat-list>
   </mat-sidenav>
