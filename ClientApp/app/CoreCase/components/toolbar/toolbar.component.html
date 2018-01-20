@@ -4,5 +4,14 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <span>Open case</span>
+    <span>Open case</span>
+    <span class="toobar-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openAddContactDialog()">New Contact</button>
+        <button mat-menu-item (click)="toggleTheme.emit()">Toggle theme</button>
+        <button mat-menu-item (click)="toggleDir.emit()">Toggle dir</button>
+    </mat-menu>
 </mat-toolbar>
