@@ -1,4 +1,6 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
+import { Case, ICase } from '../../models/case';
+import { FormControl, Validators, FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
     selector: 'app-main',
@@ -6,9 +8,20 @@
     styleUrls: ['./main.component.scss']
 })
 /** main component*/
-export class MainComponent {
+export class MainComponent implements OnInit {
     /** main ctor */
-    constructor() {
 
+
+    firstFormGroup: FormGroup;
+
+    constructor(private _formBuilder: FormBuilder) {
+
+    }
+
+
+    ngOnInit() {
+        this.firstFormGroup = this._formBuilder.group({
+            firstCtrl: ['', Validators.required]
+        });
     }
 }

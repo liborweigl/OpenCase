@@ -6,7 +6,7 @@
 
             <form [formGroup]="addEntityForm" (ngSubmit)="postAddEntity(addEntityForm.value)">
 
-                <mat-select placeholder="Entity type" formControlName="selectedValue" name="food">
+                <mat-select placeholder="Entity type" formControlName="selectedValue" name="type">
                     <mat-option *ngFor="let type of entityTypes" [value]="type.value">
                         {{type.viewValue}}
                     </mat-option>

@@ -5,6 +5,8 @@ import { FormsModule, FormControl, Validators, ReactiveFormsModule } from "@angu
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+//import { QuillEditorModule } from 'ngx-quill-editor';
+
 
 import { MaterialModule } from '../material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -14,6 +16,7 @@ import { MainComponent } from './components/main/main.component';
 import { CoreCaseComponent } from './corecase.component'
 import { AddformComponent } from "./components/addform/addform.component";
 import { CasecoreService } from "./services/casecore.service";
+
 
 
 
@@ -38,8 +41,9 @@ const routes: Routes = [
         MaterialModule,
         ReactiveFormsModule,
         CommonModule,
-        FormsModule,
-        FlexLayoutModule
+        FormsModule, 
+        FlexLayoutModule,
+        
     ],
     providers: [CasecoreService],
     declarations: [
@@ -47,7 +51,8 @@ const routes: Routes = [
         SidenavComponent,
         ToolbarComponent,
         CoreCaseComponent,
-        AddformComponent
+        AddformComponent,
+        
     ]
 })
 export class CorecaseModule {

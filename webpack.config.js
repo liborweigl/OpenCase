@@ -34,7 +34,8 @@ module.exports = (env) => {
                             aot: !isDevBuild
                         }
                     }, 'awesome-typescript-loader?silent=true', 'angular2-template-loader']
-                        : '@ngtools/webpack'
+                        : '@ngtools/webpack',
+                   //exclude: [/node_modules\/(?!(ng2-.+|ngx-.+))/]
                 },
                 { test: /\.html$/, use: 'html-loader?minimize=false' },
                 { test: /\.css$/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] },

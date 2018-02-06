@@ -1,21 +1,61 @@
-﻿<div style="border: 1px solid red">addform Component</div>
+﻿
 <div class="example-container">
     <mat-card>
-        <mat-card-content>
-            <mat-form-field>
-                <input matInput placeholder="Title" [formControl]="title" [(ngModel)]="case.title" required>
-                <mat-error *ngIf="title.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
+        <mat-horizontal-stepper  [linear] ="isLinear">
+            <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>fulfil general details</ng-template>
+                    <mat-card-content>
+                        <mat-form-field>
+                            <input matInput placeholder="Title" formControlName="title"   [(ngModel)]="case.title" required>
+                           
+                        
+                        </mat-form-field>
 
-            <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Created case" [(ngModel)]="case.date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+                        <!--<mat-form-field>
+                            <input matInput [matDatepicker]="picker" placeholder="Created case" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>-->
 
-            <mat-form-field>
-                <textarea matInput placeholder="note" [(ngModel)]="case.note"></textarea>
-            </mat-form-field>
-        </mat-card-content>
+                        <mat-form-field>
+                            <textarea matInput placeholder="note" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.note"></textarea>
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </mat-card-actions>
+             </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+                <form  [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Participations</ng-template>
+                    <mat-card-content  class="content" fxLayout="row"  fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px" >
+                        <mat-form-field fxFlex>
+                            <input matInput placeholder="Register plate" formControlName="title" [(ngModel)]="case.title" required>
+                        </mat-form-field>
+                        <mat-form-field fxFlex>
+                            <mat-select placeholder="Entity type" formControlName="selectedValue" name="type">
+                                <mat-option *ngFor="let type of entityTypes" [value]="type.value">
+                                    {{type.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                            <mat-form-field  fxFlex="calc(50%-25px)">
+                                <textarea matInput placeholder="note" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.note"></textarea>
+                            </mat-form-field>
+                </mat-card-content>
+                    <mat-card-actions>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </mat-card-actions>
+                </form>
+            </mat-step>
+            </mat-horizontal-stepper>
     </mat-card>
 </div>

@@ -2,7 +2,7 @@
 
 
 
-
+import { MatStepperModule } from '@angular/material/stepper'
 import {
     MatAutocompleteModule,
     MatButtonModule,
@@ -34,7 +34,7 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatStepperModule,
+  
     MatFormFieldModule,
 } from '@angular/material';
 
