@@ -1,8 +1,22 @@
 ﻿.add-container {
     display: flex;
     flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 .add-container > * {
+    width: 100%;
+}
+
+
+.step-container {
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.step-container > * {
     width: 100%;
 }

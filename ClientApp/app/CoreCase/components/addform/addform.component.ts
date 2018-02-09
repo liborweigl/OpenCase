@@ -2,6 +2,7 @@
 import { CasecoreService } from '../../services/casecore.service';
 import { Case, ICase } from '../../models/case';
 import { FormControl, Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { MatDatepickerInputEvent } from "@angular/material/datepicker";
 
 
 
@@ -16,6 +17,9 @@ export class AddformComponent implements OnInit {
     //title: FormControl;
     firstFormGroup: FormGroup;
     secondFormGroup: FormGroup;
+    createDate: FormControl;
+    closeDate: FormControl;
+
     isLinear = false;
 
     entityTypes = [
@@ -25,7 +29,7 @@ export class AddformComponent implements OnInit {
     ];
 
     /** addform ctor */
-    constructor(coreservice: CasecoreService, private _formBuilder: FormBuilder) {
+    constructor(private coreservice: CasecoreService, private _formBuilder: FormBuilder) {
 
        
     }
@@ -37,6 +41,10 @@ export class AddformComponent implements OnInit {
         //this.firstFormGroup = this._formBuilder.group({
         //    title: ['', Validators.required]
         //});
+
+        ///date = new FormControl(new Date());
+        this.createDate = new FormControl((new Date()).toISOString());
+        this.closeDate = new FormControl((new Date()).toISOString());
         this.firstFormGroup = this._formBuilder.group({
             title: new FormControl('', [Validators.required])
         });
@@ -45,6 +53,18 @@ export class AddformComponent implements OnInit {
             title: new FormControl('', [Validators.required]),
             selectedValue: new FormControl('', [Validators.required])
         });
+
+    
+        
+    }
+
+    calculateCloseDate(type: string, event: MatDatepickerInputEvent<Date>) {
+        this.coreservice.getCloseDate(2, event.value != null ? event.value : new Date()).subscribe(
+            closeDate =>
+                this.closeDate = new FormControl(closeDate)
+            );
+
+        //this.closeDate = new FormControl((event.value != null ? event.value : new Date()).toISOString());
     }
 
     getErrorMessage()

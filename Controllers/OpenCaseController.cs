@@ -81,5 +81,18 @@ namespace OpenCase.Controllers
         {
             return _mediator.Send(new IndexEntity() { ID = Id }).Result.FirstOrDefault();
         }
+
+
+        /// <summary>
+        /// Just prototype base on input date set close date
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <returns></returns>
+        [HttpGet("GetCloseDate")]
+        public DateTime GetCloseDate(int typeID, DateTime startDate)
+        {
+            //todo base on types and rules
+            return startDate.AddDays(10);
+        }
     }
 }

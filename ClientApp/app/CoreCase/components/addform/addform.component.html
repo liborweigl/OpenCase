@@ -1,38 +1,46 @@
 ﻿
 <div class="example-container">
     <mat-card>
-        <mat-horizontal-stepper  [linear] ="isLinear">
+        <mat-horizontal-stepper [linear]="isLinear">
             <mat-step [stepControl]="firstFormGroup">
                 <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>fulfil general details</ng-template>
-                    <mat-card-content>
-                        <mat-form-field>
-                            <input matInput placeholder="Title" formControlName="title"   [(ngModel)]="case.title" required>
-                           
-                        
-                        </mat-form-field>
+                    
+                        <ng-template matStepLabel>fulfil general details</ng-template>
+                   
+                   <mat-card-content  class="step-container">
+                            <mat-form-field>
+                                <input matInput placeholder="Title" formControlName="title" [(ngModel)]="case.title" required>
+                            </mat-form-field>
 
-                        <!--<mat-form-field>
-                            <input matInput [matDatepicker]="picker" placeholder="Created case" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.date">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>-->
+                            <mat-form-field>
+                                <textarea matInput placeholder="Description" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.note"></textarea>
+                            </mat-form-field>
+                        </mat-card-content>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker2" placeholder="Create date"
+                               [formControl]="createDate" (dateChange)="calculateCloseDate('change', $event)" [(ngModel)]="case.startDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
 
-                        <mat-form-field>
-                            <textarea matInput placeholder="note" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.note"></textarea>
-                        </mat-form-field>
-                    </mat-card-content>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker3" placeholder="Close date"
+                               [formControl]="closeDate" [(ngModel)]="case.closeCase" >
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                    </mat-form-field>
+
                     <mat-card-actions>
-                        <div>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
+                            <div>
+                                <button mat-button matStepperNext>Next</button>
+                            </div>
                     </mat-card-actions>
-             </form>
+                </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
-                <form  [formGroup]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
                     <ng-template matStepLabel>Participations</ng-template>
-                    <mat-card-content  class="content" fxLayout="row"  fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px" >
+                    <mat-card-content class="content" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
                         <mat-form-field fxFlex>
                             <input matInput placeholder="Register plate" formControlName="title" [(ngModel)]="case.title" required>
                         </mat-form-field>
@@ -44,16 +52,16 @@
                             </mat-select>
                         </mat-form-field>
 
-                            <mat-form-field  fxFlex="calc(50%-25px)">
-                                <textarea matInput placeholder="note" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.note"></textarea>
-                            </mat-form-field>
+                        <mat-form-field fxFlex="calc(50%-25px)">
+                            <textarea matInput placeholder="note" [ngModelOptions]="{standalone: true}" [(ngModel)]="case.note"></textarea>
+                        </mat-form-field>
                 </mat-card-content>
-                    <mat-card-actions>
-                        <div>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </mat-card-actions>
+    <mat-card-actions>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-card-actions>
                 </form>
             </mat-step>
             </mat-horizontal-stepper>
