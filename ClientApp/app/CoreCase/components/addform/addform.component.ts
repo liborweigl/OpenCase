@@ -3,7 +3,7 @@ import { CasecoreService } from '../../services/casecore.service';
 import { Case, ICase } from '../../models/case';
 import { FormControl, Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { MatDatepickerInputEvent } from "@angular/material/datepicker";
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -29,7 +29,9 @@ export class AddformComponent implements OnInit {
     ];
 
     /** addform ctor */
-    constructor(private coreservice: CasecoreService, private _formBuilder: FormBuilder) {
+    constructor(private coreservice: CasecoreService,
+                private _formBuilder: FormBuilder,
+                private router: Router) {
 
        
     }
@@ -70,6 +72,11 @@ export class AddformComponent implements OnInit {
     getErrorMessage()
     {
         return "xxx";
+    }
+
+    closeStepper(event : any): void
+    {
+        this.router.navigate(['corecase']);
     }
 
    
