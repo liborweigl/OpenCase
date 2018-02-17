@@ -94,5 +94,15 @@ namespace OpenCase.Controllers
             //todo base on types and rules
             return startDate.AddDays(10);
         }
+
+
+
+        // POST api/values
+        [HttpPost("CreateCase")]
+        public IActionResult CreateCase([FromBody]Case value)
+        {
+            var caseId = _mediator.Send(new CreateCase() { Case = value }).Result;
+            return Ok( new  { caseId = caseId });
+        }
     }
 }

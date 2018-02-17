@@ -11,9 +11,10 @@ using System;
 namespace OpenCase.Migrations
 {
     [DbContext(typeof(OpenCaseContext))]
-    partial class OpenCaseContextModelSnapshot : ModelSnapshot
+    [Migration("20180216160918_case")]
+    partial class @case
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +40,7 @@ namespace OpenCase.Migrations
 
                     b.HasKey("caseId");
 
-                    b.ToTable("Case");
+                    b.ToTable("Cases");
                 });
 
             modelBuilder.Entity("OpenCase.Entities.EntityCase", b =>

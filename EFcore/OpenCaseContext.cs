@@ -17,6 +17,7 @@ namespace OpenCase.EFcore
         }
 
         public DbSet<EntityCase> EntityCase { get; set; }
+        public DbSet<Case> Case { get; set; }
         
     }
 }

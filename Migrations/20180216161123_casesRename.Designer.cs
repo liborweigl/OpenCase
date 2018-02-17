@@ -11,9 +11,10 @@ using System;
 namespace OpenCase.Migrations
 {
     [DbContext(typeof(OpenCaseContext))]
-    partial class OpenCaseContextModelSnapshot : ModelSnapshot
+    [Migration("20180216161123_casesRename")]
+    partial class casesRename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

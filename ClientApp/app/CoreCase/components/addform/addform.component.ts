@@ -38,6 +38,10 @@ export class AddformComponent implements OnInit {
 
     ngOnInit() {
         this.case = new Case();
+        this.case.caseId = 0;
+        this.case.caseTypeId = 0;
+        this.case.logDate = new Date();
+
         //this.title = new FormControl('', [Validators.required]);
         //this.firstFormGroup.addControl('title', this.title);
         //this.firstFormGroup = this._formBuilder.group({
@@ -62,8 +66,10 @@ export class AddformComponent implements OnInit {
 
     calculateCloseDate(type: string, event: MatDatepickerInputEvent<Date>) {
         this.coreservice.getCloseDate(2, event.value != null ? event.value : new Date()).subscribe(
-            closeDate =>
+            closeDate => {
                 this.closeDate = new FormControl(closeDate)
+                this.case.closeDate = closeDate;
+            }
             );
 
         //this.closeDate = new FormControl((event.value != null ? event.value : new Date()).toISOString());
@@ -76,7 +82,12 @@ export class AddformComponent implements OnInit {
 
     closeStepper(event : any): void
     {
-        this.router.navigate(['corecase']);
+
+        this.coreservice.storeCase(this.case).subscribe(x => {
+            this.router.navigate(['corecase']);
+        })
+       
+       
     }
 
    

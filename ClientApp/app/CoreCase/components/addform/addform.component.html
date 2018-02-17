@@ -18,14 +18,14 @@
                         </mat-card-content>
                     <mat-form-field>
                         <input matInput [matDatepicker]="picker2" placeholder="Create date"
-                               [formControl]="createDate" (dateChange)="calculateCloseDate('change', $event)" [(ngModel)]="case.startDate">
+                               [formControl]="createDate" (dateChange)="calculateCloseDate('change', $event)" [(ngModel)]="case.createDate">
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
                     </mat-form-field>
 
                     <mat-form-field>
                         <input matInput [matDatepicker]="picker3" placeholder="Close date"
-                               [formControl]="closeDate" [(ngModel)]="case.closeCase" >
+                               [formControl]="closeDate" [(ngModel)]="case.closeDate" >
                         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
                         <mat-datepicker #picker3></mat-datepicker>
                     </mat-form-field>
@@ -65,7 +65,7 @@
                 </form>
             </mat-step>
             <mat-step [stepControl]="thridFormGroup">
-                <form [formGroup]="thirdFormGroup">
+              
                     <ng-template matStepLabel>Over view and submit</ng-template>
                         todo oveview
                     <mat-card-actions>
@@ -74,7 +74,7 @@
                             
                         </div>
                     </mat-card-actions>
-                </form>
+               
             </mat-step>
             </mat-horizontal-stepper>
     </mat-card>

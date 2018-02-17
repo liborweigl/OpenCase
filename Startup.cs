@@ -11,6 +11,9 @@ using OpenCase.EFcore;
 using Microsoft.EntityFrameworkCore;
 using MediatR;
 using System.Reflection;
+using OpenCase.Middleware;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Newtonsoft.Json.Serialization;
 
 namespace OpenCase
 {
@@ -26,7 +29,31 @@ namespace OpenCase
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(setupAction=> {
+                var jsonInputFormatter = setupAction.InputFormatters
+           .OfType<JsonInputFormatter>().FirstOrDefault();
+
+                if (jsonInputFormatter != null)
+                {
+                    jsonInputFormatter.SupportedMediaTypes
+                    .Add("application/vnd.marvin.author.full+json");
+                    jsonInputFormatter.SupportedMediaTypes
+                    .Add("application/vnd.marvin.authorwithdateofdeath.full+json");
+                }
+
+                var jsonOutputFormatter = setupAction.OutputFormatters
+                    .OfType<JsonOutputFormatter>().FirstOrDefault();
+
+                if (jsonOutputFormatter != null)
+                {
+                    jsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.hateoas+json");
+                }
+                 }).AddJsonOptions(options =>
+                    {
+                        options.SerializerSettings.ContractResolver =
+                        new CamelCasePropertyNamesContractResolver();
+                    }); 
+            
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddDbContext<OpenCaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -42,6 +69,8 @@ namespace OpenCase
                 {
                     HotModuleReplacement = true
                 });
+
+                app.UseRequestResponseLogging();
             }
             else
             {
