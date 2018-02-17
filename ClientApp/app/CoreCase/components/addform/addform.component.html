@@ -45,7 +45,7 @@
                             <input matInput placeholder="Register plate" formControlName="title" [(ngModel)]="case.title" required>
                         </mat-form-field>
                         <mat-form-field fxFlex>
-                            <mat-select placeholder="Entity type" formControlName="selectedValue" name="type">
+                            <mat-select placeholder="Entity type" formControlName="selectedValue" name="type" [(ngModel)]="case.caseTypeId">
                                 <mat-option *ngFor="let type of entityTypes" [value]="type.value">
                                     {{type.viewValue}}
                                 </mat-option>

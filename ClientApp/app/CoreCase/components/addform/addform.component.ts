@@ -42,12 +42,6 @@ export class AddformComponent implements OnInit {
         this.case.caseTypeId = 0;
         this.case.logDate = new Date();
 
-        //this.title = new FormControl('', [Validators.required]);
-        //this.firstFormGroup.addControl('title', this.title);
-        //this.firstFormGroup = this._formBuilder.group({
-        //    title: ['', Validators.required]
-        //});
-
         ///date = new FormControl(new Date());
         this.createDate = new FormControl((new Date()).toISOString());
         this.closeDate = new FormControl((new Date()).toISOString());
@@ -77,12 +71,11 @@ export class AddformComponent implements OnInit {
 
     getErrorMessage()
     {
-        return "xxx";
+        return "";
     }
 
     closeStepper(event : any): void
     {
-
         this.coreservice.storeCase(this.case).subscribe(x => {
             this.router.navigate(['corecase']);
         })

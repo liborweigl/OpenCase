@@ -57,6 +57,8 @@ namespace OpenCase.Entities
        public DateTime logDate { get; set; }
        public DateTime closeDate { get; set; }
 
+        public Case() { }
+
         public Case(Case cas)
         {
             //to use some copy properties method mapper..

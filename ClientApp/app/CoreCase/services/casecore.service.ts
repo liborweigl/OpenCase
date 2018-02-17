@@ -39,6 +39,13 @@ export class CasecoreService {
         return this.http.post(this.baseUrl + 'api/OpenCase/CreateCase', value, { headers: headers }).do(response => console.log('Created case' + JSON.stringify(response)) ).catch(this.handleError);
     }
 
+    getCases(): Observable<Case[]>
+    {
+        return this.http.get(this.baseUrl + 'api/OpenCase/GetCloseDate').do(cases => console.log('cases[]: ' + JSON.stringify(cases) + '** ')).
+            catch(this.handleError);
+
+    }
+
     private handleError(err: HttpErrorResponse) {
         console.error(err.message);
         return Observable.throw(err.message);

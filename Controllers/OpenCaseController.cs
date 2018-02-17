@@ -104,5 +104,12 @@ namespace OpenCase.Controllers
             var caseId = _mediator.Send(new CreateCase() { Case = value }).Result;
             return Ok( new  { caseId = caseId });
         }
+
+        [HttpGet("GetCases")]
+        public IActionResult GetCases()
+        {
+
+            return Ok( _mediator.Send(new GetCase()).Result);
+        }
     }
 }
