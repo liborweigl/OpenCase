@@ -16,7 +16,7 @@ import { MainComponent } from './components/main/main.component';
 import { CoreCaseComponent } from './corecase.component'
 import { AddformComponent } from "./components/addform/addform.component";
 import { CasecoreService } from "./services/casecore.service";
-
+import { DetailComponent} from "./components/detail/detail.component";
 
 
 
@@ -25,7 +25,7 @@ const routes: Routes = [
     {
         path: 'corecase', component: CoreCaseComponent ,
         children: [
-           
+            { path: 'detail/:id', component: DetailComponent},
             { path: 'main', component: MainComponent },
             { path: 'add', component: AddformComponent },
             { path: ':id', component: MainComponent },
@@ -52,6 +52,7 @@ const routes: Routes = [
         ToolbarComponent,
         CoreCaseComponent,
         AddformComponent,
+        DetailComponent
         
     ]
 })

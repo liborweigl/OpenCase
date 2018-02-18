@@ -37,6 +37,7 @@ export class AddformComponent implements OnInit {
     }
 
     ngOnInit() {
+
         this.case = new Case();
         this.case.caseId = 0;
         this.case.caseTypeId = 0;

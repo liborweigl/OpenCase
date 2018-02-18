@@ -69,8 +69,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
             { path: 'app-presententity', component: PresentEntityComponent },  
             { path: 'app-search', component: SearchComponent }, 
             { path: 'cases', loadChildren: './CoreCase/corecase.module#CorecaseModule' },
-            { path: '**', redirectTo: 'cases' }
-        ])
+            //{ path: '**', redirectTo: 'cases' }
+        ], { enableTracing: true })
     ]
 })
 export class AppModuleShared {
