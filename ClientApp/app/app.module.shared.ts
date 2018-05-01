@@ -23,6 +23,8 @@ import { MaterialModule } from './material.module';
 import { SearchComponent } from './components/search/search.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { EditEntityComponent } from './components/edit-entity/edit-entity.component';
+
 //import { FlexLayoutModule } from "@angular/flex-layout";
 
 //import 'hammerjs';
@@ -44,7 +46,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
         PresentEntityComponent,
         SearchComponent,
         SidenavComponent,
-        //FlexLayoutModule
+        EditEntityComponent,
         ToolbarComponent
     ],
     providers: [AddEntityService],

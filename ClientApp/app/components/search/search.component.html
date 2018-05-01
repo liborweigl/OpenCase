@@ -16,12 +16,13 @@
             <p>
                 {{product?.Description}}
             </p>
-        </div>
-        <div *ngIf="product?.length < 1">
-            <hr>
-            <p>
-                No results found :(
-            </p>
+
+            <div *ngIf="product?.length < 1">
+                <hr>
+                <p>
+                    No results found :(
+                </p>
+            </div>
         </div>
 
         <mat-form-field>

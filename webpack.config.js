@@ -31,7 +31,7 @@ module.exports = (env) => {
                         options: {
                             loader: 'async-import',
                             genDir: 'compiled',
-                            aot: !isDevBuild
+                            aot: false//!isDevBuild
                         }
                     }, 'awesome-typescript-loader?silent=true', 'angular2-template-loader']
                         : '@ngtools/webpack',

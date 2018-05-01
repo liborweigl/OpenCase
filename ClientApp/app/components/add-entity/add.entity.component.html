@@ -1,7 +1,7 @@
 ﻿
 <mat-card class="cardmar">
     <mat-card-content>
-        <div *ngIf="!name; else forminfo">
+        <div *ngIf="!selectedValue; else forminfo">
             <h2 class="notification-h2"><i class="material-icons">add</i> Add user</h2>
 
             <form [formGroup]="addEntityForm" (ngSubmit)="postAddEntity(addEntityForm.value)">
