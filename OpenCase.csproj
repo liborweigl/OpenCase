@@ -28,6 +28,7 @@
   <ItemGroup>
     <None Remove="ClientApp\app\components\add-entity\add.entity.service.ts" />
     <None Remove="ClientApp\app\components\add-entity\entity.ts" />
+    <None Remove="webpack.config.vendor.js" />
   </ItemGroup>
 
 
